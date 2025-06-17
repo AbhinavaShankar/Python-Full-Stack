@@ -1,5 +1,5 @@
 from collections import defaultdict,deque
-from typing import List,Dict
+
 class LogSystems:
      def __init__(self, capacity: int):
          self.capacity = capacity
@@ -28,16 +28,16 @@ class LogSystems:
          self.level_count[level] += 1
          self.recent_logs.append(log)
 
-     def get_user_logs(self, user_id: str) -> List[Dict]:
+     def get_user_logs(self, user_id: str):
          return self.user_logs.get(user_id, [])
 
-     def count_levels(self) -> Dict[str, int]:
+     def count_levels(self):
          return dict(self.level_count)
 
-     def get_recent_logs(self)->List[Dict]:
+     def get_recent_logs(self):
          return self.recent_logs
 
-     def filter_logs(self, keyword: str) -> List[Dict]:
+     def filter_logs(self, keyword: str) :
          keyword_lower = keyword.lower()
          return [log for log in self.recent_logs if keyword_lower in log["message"].lower()]
 
